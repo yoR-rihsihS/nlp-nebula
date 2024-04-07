@@ -88,6 +88,8 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 | Pile 7B | 17.70% | 18.00% | 18.79% | 21.39% | 41.31% |
 | Pile 14B | 20.97% | 21.65% | 21.61% | 23.61% | 37.32% |
 
+![Accuracy vs Size - RWKV v4 on QA Task](./responses/rwkv_accuracy_vs_size/acc_vs_size.png)
+
 ### Contributors -
 1. [Anjali Chauhan](https://github.com/anjc24)
 2. [Shishir Roy](https://github.com/yoR-rihsihS)
