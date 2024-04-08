@@ -55,7 +55,7 @@ We have used Gemini pro 1.0. For more details, here is the [Gemini technical rep
 | QA Task on 30 Doc w/ QAC | 63.69% | 54.08% | 54.38% | 56.98% | 59.47% | 60.15% | 66.96% |
 
 ### Experimental Results of RWKV v4 -
-We have used RWKV v4 instruction tuned model with 14B parameters for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/BlinkDL/rwkv-4-raven)
+We have used RWKV v4 instruction tuned model with 14B parameters for all the testing, for details refer [Hugging Face Model Card](https://huggingface.co/BlinkDL/rwkv-4-raven)
 ###### Note : RWKV v5 and v6 is available but with less than equal to 7B parameters only.
 
 1. **Key-Value Retrieval Task:**
