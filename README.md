@@ -91,7 +91,7 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 ![Accuracy vs Size - RWKV v4 on QA Task](./responses/rwkv_accuracy_vs_size/acc_vs_size.png)
 
 ### Experimental Results of LLaMA2-70B
-We have used LLaMA2-4k contex length model with 70B parameters for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/meta-llama/Llama-2-70b)
+We have used pre-trained and fine-tuned LLaMA2-4k contex length model with 70B parameters (developed by Meta) for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/meta-llama/Llama-2-70b)
 
 1. **Key-Value Retrieval Task for 75 Keys:**
    
