@@ -77,7 +77,7 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 ### Effect of Model Size on Accuracy -
 ###### Note : We have used RWKV v4, raven implies the model is instruct fine tuned and pile implies the model is base model.
 
-1. **Question-Answer Task with 30 Documents:**
+1. **Question-Answer Task with 20 Documents:**
 
 | Relevant Document Location -> | 0 | 4 | 9 | 14 | 19 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
