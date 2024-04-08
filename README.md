@@ -33,7 +33,7 @@ We have used Gemini pro 1.0. For more details, here is the [Gemini technical rep
 | W/O QAC | 100% | 99.4% | 100% | 100% | 100% |
 | W/ QAC | 99.8% | 100% | 100% | 100% | 100% |
 
-3. **Key-Value Retrieval Task for 140 Keys:**
+3. **Key-Value Retrieval Task for 300 Keys:**
    
 | Correct Key at location -> | 0 | 49 | 99 | 149 | 199 | 249 | 299 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -89,6 +89,31 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 | Pile 14B | 20.97% | 21.65% | 21.61% | 23.61% | 37.32% |
 
 ![Accuracy vs Size - RWKV v4 on QA Task](./responses/rwkv_accuracy_vs_size/acc_vs_size.png)
+
+### Experimental Results of LLaMA2-70B
+We have used LLaMA2-4k contex length model with 70B parameters for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/meta-llama/Llama-2-70b)
+
+1. **Key-Value Retrieval Task for 75 Keys:**
+   
+| Correct Key at location -> | 0 | 24 | 49 | 74 |
+| :---: | :---: | :---: | :---: | :---: |
+| W/O QAC | 60% | 0.68% | 0% | 0% |
+
+As we can see from above LLaMA is not suitable for KV-retrieval tasks
+
+2. **Question-Answer Task:**
+
+| Relevant Document Location -> | 0 | 4 | 9 | 14 | 19 | 24 | 29 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| QA Task Closedbook | 51.33% | - | - | - | - | - | - |
+| QA Task Oracle w/o QAC | 90.24% | - | - | - | - | - | - |
+| QA Task Oracle w/ QAC | 89.52% |  - | - | - | - | - | - |
+| QA Task on 10 Doc w/o QAC | 73.67% |67.86% | 69.86% | - | - | - | - |
+| QA Task on 10 Doc w/ QAC | 77.47% | 70.50% | 68.51% | - | - | - | - |
+| QA Task on 20 Doc w/o QAC | 60.30% | 44.40% | 45.87% | 48.62% | 27.98% | - | - |
+| QA Task on 20 Doc w/ QAC | 70.32% | 56.66% | 58.71% | 54.16% | 35.90% | - | - |
+| QA Task on 30 Doc w/o QAC | 61.95% | 51.56% | 50.02% | 50.96% | 25.35% | 24.33% | 27.76% |
+| QA Task on 30 Doc w/ QAC | 70.79% | 59.17% | 53.29% | 56.72% | 34.08% | 34.68% | 35.59% |
 
 ### Contributors -
 1. [Anjali Chauhan](https://github.com/anjc24)
