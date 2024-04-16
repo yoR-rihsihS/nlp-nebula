@@ -88,7 +88,20 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 | Pile 7B | 17.70% | 18.00% | 18.79% | 21.39% | 41.31% |
 | Pile 14B | 20.97% | 21.65% | 21.61% | 23.61% | 37.32% |
 
-![Accuracy vs Size - RWKV v4 on QA Task](./responses/rwkv_accuracy_vs_size/acc_vs_size.png)
+![Accuracy vs Size - RWKV v4 on QA Task](./responses/acc_vs_size.png)
+
+### Effect of Instruction Fine Tuning on Accuracy -
+###### Note : We have used RWKV v4, raven implies the model is instruct fine tuned and pile implies the model is base model.
+
+1. **Question-Answer Task with 20 Documents:**
+
+| Relevant Document Location -> | 0 | 4 | 9 | 14 | 19 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Raven 14B | 32.35% | 31.03% | 30.09% | 31.52% | 43.35% |
+| Pile 14B | 20.97% | 21.65% | 21.61% | 23.61% | 37.32% |
+| Mistral 7B - Instruct | 64.78% | 65.00% | 65.23% | 65.68% | 66.13% |
+| Mistral 7B - Base | 62.93% | 35.59% | 33.63% | 33.97% | 43.95% |
+
 
 ### Experimental Results of LLaMA2-70B
 We have used pre-trained and fine-tuned LLaMA2-4k contex length model with 70B parameters (developed by Meta) for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/meta-llama/Llama-2-70b)
@@ -114,6 +127,43 @@ As we can see from above LLaMA is not suitable for KV-retrieval tasks
 | QA Task on 20 Doc w/ QAC | 70.32% | 56.66% | 58.71% | 54.16% | 35.90% | - | - |
 | QA Task on 30 Doc w/o QAC | 61.95% | 51.56% | 50.02% | 50.96% | 25.35% | 24.33% | 27.76% |
 | QA Task on 30 Doc w/ QAC | 70.79% | 59.17% | 53.29% | 56.72% | 34.08% | 34.68% | 35.59% |
+
+### Experimental Results of Mistral-7B-Instruct
+
+1. **Key-Value Retrieval Task for 75 Keys:**
+   
+| Correct Key at location -> | 0 | 24 | 49 | 74 |
+| :---: | :---: | :---: | :---: | :---: |
+| W/O QAC | 99.6% | 98% | 98.2% | 96% |
+| W/ QAC | 99.2% | 100% | 100% | 99.8% |
+
+2. **Key-Value Retrieval Task for 140 Keys:**
+   
+| Correct Key at location -> | 0 | 34 | 69 | 104 | 139 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| W/O QAC | 99.2% | 94.8% | 94.6% | 96.2% | 88.6% |
+| W/ QAC | 98.8% | 100% | 100% | 100% | 92.6% |
+
+3. **Key-Value Retrieval Task for 300 Keys:**
+   
+| Correct Key at location -> | 0 | 49 | 99 | 149 | 199 | 249 | 299 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| W/O QAC | 99.6% | 85.4% | 84.8% | 83.2% | 76.8% | 90.4% | 73.4% |
+| W/ QAC | 97.6% | 99.8% | 99.8% | 99.8% | 99.4% | 99.8% | 26.2% |
+
+4. **Question-Answer Task:**
+
+| Relevant Document Location -> | 0 | 4 | 9 | 14 | 19 | 24 | 29 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| QA Task Closedbook | % | - | - | - | - | - | - |
+| QA Task Oracle w/o QAC | % | - | - | - | - | - | - |
+| QA Task Oracle w/ QAC | % |  - | - | - | - | - | - |
+| QA Task on 10 Doc w/o QAC | 71.60% |68.85% | 68.24% | - | - | - | - |
+| QA Task on 10 Doc w/ QAC | 77.55% | 67.64% | 64.21% | - | - | - | - |
+| QA Task on 20 Doc w/o QAC | 64.78% | 65.00% | 65.23% | 65.68% | 66.13% | - | - |
+| QA Task on 20 Doc w/ QAC | 74.04% | 63.16% | 61.80% | 62.33% | 61.35% | - | - |
+| QA Task on 30 Doc w/o QAC | 62.18% | 60.15% | 62.22% | 64.18% | 63.08% | 64.25% | 66.29% |
+| QA Task on 30 Doc w/ QAC | 70.50% | 59.92% | 59.92% | 61.69% | 60.64% | 61.80% | 62.71% |
 
 ### Contributors -
 1. [Anjali Chauhan](https://github.com/anjc24)
