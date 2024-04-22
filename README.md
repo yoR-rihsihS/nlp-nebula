@@ -102,6 +102,19 @@ We have used RWKV v4 instruction tuned model with 14B parameters for all the tes
 | Mistral 7B - Instruct | 64.78% | 65.00% | 65.23% | 65.68% | 66.13% |
 | Mistral 7B - Base | 62.93% | 35.59% | 33.63% | 33.97% | 43.95% |
 
+### Effect of Attention Mechanism Used -
+Note : We have used Mistral-7B Instruct v0.2, [model card](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2).
+Here, sdpa = scaled dot product attention and flash = flash_attention_2, [paper](https://arxiv.org/abs/2205.14135) and [github repo](https://github.com/Dao-AILab/flash-attention).
+
+1. **Question-Answer Task with 20 Documents:**
+
+| Relevant Document Location -> | 0 | 4 | 9 | 14 | 19 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| sdpa | 64.78% | 65.00% | 65.23% | 65.68% | 66.13% |
+| flash | 64.63% | 64.85% | 65.12% | 65.64% | 66.17% |
+
+Conclusion - Flash Attention marginally (negligibly) decreases the accuracy.
+Remark - Both experiments described in this section has been performed on systems with different configurations, and thus average time required to execute a prompt cannot be compared.
 
 ### Experimental Results of LLaMA2-70B
 We have used pre-trained and fine-tuned LLaMA2-4k contex length model with 70B parameters (developed by Meta) for all the testing, for details refer [Hugging Face Model Card].(https://huggingface.co/meta-llama/Llama-2-70b)
